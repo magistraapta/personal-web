@@ -10,6 +10,9 @@ function ArticlePage() {
     const {slug} = Route.useParams()
     const markdownPath = `/src/markdown/${slug}.md`
     return (
-        <MarkdownRenderer filePath={markdownPath} />
+        <div className='max-w-4xl mx-auto p-6'>
+            <MarkdownRenderer filePath={markdownPath} />
+        </div>
+        
     )
 }
