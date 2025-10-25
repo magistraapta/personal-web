@@ -1,4 +1,4 @@
-import { createFileRoute, Link } from '@tanstack/react-router'
+import { createFileRoute} from '@tanstack/react-router'
 import { getArticles } from '@/utils/getArticle'
 import { ArticleCard } from '@/components/ArticleCard'
 
