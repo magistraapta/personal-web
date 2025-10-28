@@ -1,6 +1,6 @@
 import { createFileRoute} from '@tanstack/react-router'
 import { getArticles } from '@/utils/getArticle'
-import { ArticleCard } from '@/components/ArticleCard'
+import { ArticleCard } from '@/components/article/ArticleCard'
 
 export const Route = createFileRoute('/articles/')({
   component: ArticlesListComponent,
