@@ -1,5 +1,5 @@
-import MarkdownRenderer from '@/components/article/Markdown'
 import { createFileRoute, Link } from '@tanstack/react-router'
+import MarkdownRenderer from '@/components/article/Markdown'
 
 export const Route = createFileRoute('/articles/$slug')({
   component: ArticlePage,
