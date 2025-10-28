@@ -32,14 +32,10 @@ export default function MarkdownRenderer({ filePath }: { filePath: string }) {
         li: (props: any) => <li className="ml-4 text-white" {...props} />,
         a: (props: any) => <a className="text-blue-600 hover:text-blue-800 hover:underline transition-colors" {...props} />,
         img: (props: any) => <img className="w-full h-auto rounded-lg shadow-sm" {...props} />,
-        // Enhanced inline code styling
         code: (props: any) => {
-            // Check if it's inline code (no className) or code block (has className)
             if (props.className) {
-                // This is a code block
                 return <code {...props} />
             } else {
-                // This is inline code
                 return (
                     <code 
                         className="text-sm font-mono bg-gray-100 text-gray-800 px-2 py-1 rounded-md border border-gray-200 shadow-sm" 
@@ -48,15 +44,12 @@ export default function MarkdownRenderer({ filePath }: { filePath: string }) {
                 )
             }
         },
-        // Code block styling
         pre: (props: any) => (
             <pre className="bg-gray-900 text-gray-100 p-4 rounded-lg overflow-x-auto shadow-lg border border-gray-700 my-4" {...props} />
         ),
-        // Blockquote styling
         blockquote: (props: any) => (
             <blockquote className="border-l-4 border-blue-500 pl-4 py-2 text-black italic my-4" {...props} />
         ),
-        // Table styling
         table: (props: any) => (
             <table className="min-w-full border-collapse border border-gray-300 my-4" {...props} />
         ),
