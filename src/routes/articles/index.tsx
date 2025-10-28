@@ -10,8 +10,8 @@ export const Route = createFileRoute('/articles/')({
 function ArticlesListComponent() {
     const articles = Route.useLoaderData()
     return (
-        <div className="max-w-4xl mx-auto p-6">
-            <h1 className="text-3xl font-bold mb-6">Available Articles</h1>
+        <div className="max-w-4xl mx-auto px-4 py-6 sm:px-6 md:px-8">
+            <h1 className="text-2xl sm:text-3xl md:text-4xl font-bold mb-6 sm:mb-8">Available Articles</h1>
             <div>
                 {
                     articles.map((article) => (
