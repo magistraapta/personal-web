@@ -96,7 +96,7 @@ response:
 # High-level Design
 ## User should be able to get the estimated fare
 Before making a request rider should be able to input the pickup and dropoff location and get estimated fare.
-![[Screenshot 2025-09-26 at 18.48.01.png]]
+![[gojek-system-design-1.png]]
 Explanation of the components:
 - Client: every request is coming from client using mobile (Android or iOS) that act as user interface and connected to the backend service.
 - API Gateway: Every request coming from client will go to the API Gateway that act as single point of entry that manage the auth, rate-limiting, routing, and load balancing
@@ -104,12 +104,12 @@ Explanation of the components:
 - Database: the database will store the information about every Trip.
 ## User should be able to make a ride request 
 After the rider view the estimated fare, the rider can make a ride request. The API Gateway will authenticate the request and apply rate limiting before process the request. Then after ride service will process the ride request and update the Trip data into requested.
-![[Screenshot 2025-09-27 at 14.24.50.png]]
+![[gojek-system-design-2.png]]
 ## User should be able to match by nearby and available driver
 ![[Screenshot 2025-09-27 at 14.33.16.png]]
 After make a ride request then the ride service trigger the ride mathcing service to find nearby and available driver from the DB. Each time the rider and driver update their location using location service and update the location into the DB.
 ## Driver should be able to accept/deny ride request
-![[Screenshot 2025-09-27 at 14.40.00.png]]
+![[gojek-system-design-3.png]]
 After rider get estimated fare and process to make a rider request the driver will get a notification to accept or deny the rider request. To solve this we can use notification service for sending the notification to the driver about the new ride request.
 # Deep dive
 ## How to prevent multiple ride request from being sent to the same driver

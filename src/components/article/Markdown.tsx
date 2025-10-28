@@ -11,7 +11,14 @@ export default function MarkdownRenderer({ filePath }: { filePath: string }) {
     useEffect(() => {
       fetch(filePath)
         .then((res) => res.text())
-        .then((text) => setContent(text))
+        .then((text) => {
+          // Transform Obsidian image syntax ![[image.png]] to standard markdown
+          const transformedText = text.replace(/!\[\[([^\]]+)\]\]/g, (_, imagePath) => {
+            // Convert to standard markdown image syntax pointing to public directory
+            return `![${imagePath}](/image/${imagePath})`;
+          });
+          setContent(transformedText);
+        })
         .catch((err) => {
           console.error("Failed to load markdown:", err);
           setContent("# Error\nCould not load content.");
@@ -31,7 +38,7 @@ export default function MarkdownRenderer({ filePath }: { filePath: string }) {
         ol: (props: any) => <ol className="list-decimal list-inside space-y-1" {...props} />,
         li: (props: any) => <li className="ml-4 text-white" {...props} />,
         a: (props: any) => <a className="text-blue-600 hover:text-blue-800 hover:underline transition-colors" {...props} />,
-        img: (props: any) => <img className="w-full h-auto rounded-lg shadow-sm" {...props} />,
+        img: (props: any) => <img className="w-full h-auto rounded-lg shadow-sm my-4" {...props} />,
         code: (props: any) => {
             if (props.className) {
                 return <code {...props} />
