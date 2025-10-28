@@ -29,7 +29,26 @@ export default function Title() {
                     to what I'm working on and thinking about. I publish a newsletter as
                     often as I can.
                 </p>
+                <div className='p-6'>
+                    <SocialMedia />
+                </div>
             </motion.div>
+        </div>
+    )
+}
+
+function SocialMedia() {
+    return (
+        <div className="flex gap-x-4 items-center justify-center">
+            <a href="https://github.com/magistraapta" target="_blank" rel="noopener noreferrer">
+                <i className="fa-brands fa-github"></i>
+            </a>
+            <a href="https://x.com/magistrapta" target="_blank" rel="noopener noreferrer">
+                <i className="fa-brands fa-twitter"></i>
+            </a>
+            <a href="https://linkedin.com/in/magistraapta" target="_blank" rel="noopener noreferrer">
+                <i className="fa-brands fa-linkedin"></i>
+            </a>
         </div>
     )
 }
